@@ -25,6 +25,7 @@ ItemWriter and InterProcess will be gained from Component Class
 @Configuration
 @EnableBatchProcessing
 public class BatchConfig {
+
     @Bean
     public Job job(JobBuilderFactory jobBuilderFactory,
                    StepBuilderFactory stepBuilderFactory,
@@ -34,7 +35,7 @@ public class BatchConfig {
     ) {
 
         Step step = stepBuilderFactory.get("User-Load")
-                .<User, User>chunk(100)
+                .<User, User>chunk(500)
                 .reader(itemReader)
                 .processor(itemProcessor)
                 .writer(itemWriter)
