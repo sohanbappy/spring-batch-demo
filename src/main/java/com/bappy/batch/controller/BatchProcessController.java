@@ -28,7 +28,7 @@ public class BatchProcessController {
     public String loadFromFileToDb() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobInstanceAlreadyCompleteException, JobRestartException {
 
         Map<String, JobParameter> jobMap = new HashMap<>();
-        jobMap.put("DevBy", new JobParameter("Sohan Bappy"));
+        jobMap.put("DevBy", new JobParameter(System.currentTimeMillis()));
         JobParameters parameters = new JobParameters(jobMap);
         JobExecution jobExecution = jobLauncher.run(job, parameters);
 
